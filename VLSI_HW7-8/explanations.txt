@@ -1,0 +1,17 @@
+--------------------
+-------Part1.3------
+--------------------
+
+(1)The FSM Coverage isn't 100%. We've traversed all the states, yet there remain "2" unexplored FSM transitions, 
+which are SUBT -> DONE, and SWAP -> DONE. Under ordinary circumstances, these transitions won't occur. 
+The reason is that the FSM dictates that the subsequent state to SUBT or SWAP cannot be the DONE state. 
+Instead, SUBT progresses to TEST and SWAP progresses to SUBT. 
+Thus, it's appropriate that the report doesn't account for these two transitions.
+
+However, there exists one particular situation that could accommodate these transitions: 
+when the reset_n signal is deasserted while the current state is either SUBT or SWAP. In such a case, the subsequent state reverts to DONE. 
+In conclusion, the inability to achieve 100% FSM coverage is attributed to unexpected behavior, not a design fault.
+
+(2)Condition Coverage isn't discovered within the design files, which is considered a normal situation. 
+This is because the design files do not comprise any condition, such as "==". All conditions are present in the testbench, 
+but they aren't mandated to be covered as they are not part of the design files. Hence, I employ the "exclude" command in the .do file.
