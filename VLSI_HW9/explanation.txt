@@ -1,0 +1,9 @@
+3) Prove and debug formal assertions
+
+p_startonce:  Passed and Assumed
+
+p_evdone:  Passed and Proven
+
+p_sanity:  Passed and Proven
+
+p_divides: Passed and Proven
