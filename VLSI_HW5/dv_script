@@ -1,0 +1,3 @@
+analyze -format sverilog count.sv
+elaborate count -parameter 8
+compile
